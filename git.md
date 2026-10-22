@@ -10,8 +10,8 @@ paginate: true
 
 ### Version Control et collaboration
 
-
-Présenté par : Oumaima Mahfoud
+<!-- TODO: a fxe -->
+Présenté par : Badreddine Hammam
 SOLICODE
 
 ---
