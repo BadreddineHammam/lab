@@ -51,6 +51,16 @@ style: |
   }
 ---
 
+# Découvrir Marp
+
+
+What was wrong?
+- The opening --- must come before marp: true.
+- Each setting (theme, paginate, size) must be on its own line.
+- style: | must be inside the front matter, with the CSS indented.
+- Remove the extra --- lines before style:.
+- ## section strong is incorrect CSS; use section strong without the Markdown heading symbols.
+This should fix the Marp configuration and preserve your styling.
 <!-- _class: lead -->
 
 # Découvrir Marp
@@ -61,11 +71,11 @@ Introduction, problèmes et solutions
 
 <!-- _class: light -->
 
-## Lab Plan
+## Plan du lab
 
 1. Introduction
-2. Problems Encountered
-3. Solutions Implemented
+2. Problèmes rencontrés
+3. Solutions mises en place
 4. Mise en pratique
 5. Conclusion
 
@@ -95,7 +105,7 @@ Si Marp ne reconnaît pas le fichier comme une présentation, l'aperçu peut ne 
 
 ## Solution 1 : activer Marp
 
-Ajouter ce front matter au début du fichier :
+Ajoutez ce front matter au début du fichier :
 
 ```yaml
 ---
@@ -119,14 +129,15 @@ size: 16:9
 
 Un séparateur `---` mal placé peut créer une diapositive inattendue.
 
-Il peut aussi être difficile de distinguer le contenu de deux diapositives.
-
 **Exemple incorrect :**
 
 ```markdown
 # Première diapositive
+
 Voici mon texte.
+
 # Deuxième diapositive
+
 Voici un autre texte.
 ```
 
@@ -136,7 +147,7 @@ Sans séparateur, Marp peut placer les deux titres sur la même diapositive.
 
 ## Solution 2 : utiliser `---`
 
-Placer trois tirets entre les diapositives :
+Placez trois tirets entre les diapositives :
 
 ```markdown
 # Première diapositive
@@ -152,7 +163,7 @@ Voici un autre texte.
 
 Chaque séparateur marque la limite entre deux diapositives.
 
-Attention : ne pas confondre les séparateurs de diapositives avec ceux utilisés dans le front matter ou dans certains exemples de code.
+Attention : dans le fichier principal, les séparateurs doivent être placés hors des blocs de code pour créer de nouvelles diapositives.
 
 ---
 
@@ -168,7 +179,7 @@ Les couleurs, les polices et l'apparence des titres peuvent être trop simples.
 
 ## Solution 3 : personnaliser avec CSS
 
-Utiliser CSS pour modifier l'apparence :
+Utilisez CSS pour modifier l'apparence :
 
 ```css
 section {
@@ -207,7 +218,7 @@ Pour appliquer le style `light` :
 ```markdown
 <!-- _class: light -->
 
-## Lab Plan
+## Plan du lab
 ```
 
 Pour centrer le contenu avec `lead` :
@@ -246,9 +257,9 @@ Pour la placer à droite comme arrière-plan :
 ![bg right:40%](images/schema.png)
 ```
 
-- Vérifier que le dossier `images` existe.
-- Vérifier que `schema.png` se trouve dans ce dossier.
-- Utiliser un texte alternatif qui décrit l'image.
+- Vérifiez que le dossier `images` existe.
+- Vérifiez que `schema.png` se trouve dans ce dossier.
+- Utilisez un texte alternatif qui décrit l'image.
 
 ---
 
@@ -266,10 +277,10 @@ L'exportation en PDF ou PowerPoint peut également dépendre du navigateur et de
 
 **Dans VS Code :**
 
-1. Installer l'extension Marp for VS Code.
-2. Ouvrir la palette avec `Ctrl + Shift + P`.
-3. Choisir `Marp: Open Preview to the Side`.
-4. Vérifier les diapositives.
+1. Installez l'extension Marp for VS Code.
+2. Ouvrez la palette avec `Ctrl + Shift + P`.
+3. Choisissez `Marp: Open Preview to the Side`.
+4. Vérifiez les diapositives.
 
 **Pour utiliser Marp CLI :**
 
@@ -284,7 +295,7 @@ Node.js et npm sont nécessaires pour installer Marp CLI.
 
 <!-- _class: light -->
 
-## 3. Solutions Implemented : récapitulatif
+## 3. Solutions mises en place : récapitulatif
 
 | Problème | Solution |
 |---|---|
@@ -301,7 +312,7 @@ Ces problèmes sont des exemples fréquents à vérifier. Ils ne signifient pas 
 
 ## 4. Mise en pratique
 
-Créer un fichier `presentation.md` avec deux diapositives :
+Créez un fichier `presentation.md` avec deux diapositives :
 
 ```markdown
 ---
@@ -323,9 +334,9 @@ Prévisualiser les deux diapositives.
 
 Ensuite :
 
-1. Ouvrir le fichier dans VS Code.
-2. Lancer l'aperçu Marp.
-3. Vérifier que les deux diapositives apparaissent.
+1. Ouvrez le fichier dans VS Code.
+2. Lancez l'aperçu Marp.
+3. Vérifiez que les deux diapositives apparaissent.
 
 ---
 
