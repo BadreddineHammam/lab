@@ -36,7 +36,7 @@ Users can:
 
 - [x] Define the project subject.
 - [x] Define the project objective.
-- [ ] Create the database.
+- [x] Create the database.
 - [ ] Develop the application.
 - [ ] Test the application.
 ---
