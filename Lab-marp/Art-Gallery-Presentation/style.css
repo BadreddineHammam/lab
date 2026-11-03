@@ -1,0 +1,26 @@
+/* @theme op */
+
+section {
+    background-color: #e36b34;
+    color: #292929;
+    font-family: Arial, sans-serif;
+    padding: 60px;
+}
+
+h1 {
+    color: #8c27c2;
+}
+
+h2 {
+    color: #ef1111;
+}
+
+section.lead {
+    background-color: #292929;
+    color: white;
+    text-align: center;
+}
+
+section.lead h1 {
+    color: white;
+}
