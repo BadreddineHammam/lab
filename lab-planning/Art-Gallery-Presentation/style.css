@@ -1,0 +1,96 @@
+/* @theme art-gallery */
+
+@import "default";
+
+section {
+  background: #ffffff;
+  color: #333333;
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  padding: 48px 64px;
+}
+
+h1 {
+  color: #315c5b;
+  font-size: 1.5em;
+  margin-bottom: 0.45em;
+}
+
+h2,
+h3 {
+  color: #555555;
+}
+
+table {
+  font-size: 0.82em;
+  width: 100%;
+}
+
+th {
+  background: #315c5b;
+  color: #ffffff;
+}
+
+td,
+th {
+  padding: 8px;
+}
+
+section img {
+  max-height: 180px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+section.cover {
+  background: #f2f2f2;
+  color: #333333;
+  padding: 90px 42% 70px 64px;
+}
+
+section.cover h1 {
+  font-size: 2em;
+}
+
+section.cover .cover-art {
+  height: 70%;
+  margin: 0;
+  position: absolute;
+  right: 5%;
+  top: 15%;
+  width: 30%;
+}
+
+section.cover .cover-art img {
+  height: 100%;
+  max-height: none;
+  object-fit: contain;
+  width: 100%;
+}
+
+section.cover .cover-logos {
+  align-items: center;
+  bottom: 20px;
+  display: flex;
+  gap: 12px;
+  left: 64px;
+  margin: 0;
+  position: absolute;
+}
+
+section.cover .cover-logos img {
+  height: 32px;
+  max-height: 32px;
+  width: auto;
+}
+
+section.conclusion {
+  background: #315c5b;
+  color: #ffffff;
+}
+
+section.conclusion h1,
+section.conclusion h2,
+section.conclusion h3 {
+  color: #ffffff;
+}

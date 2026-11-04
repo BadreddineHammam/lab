@@ -1,26 +1,126 @@
-/* @theme op */
+/* @theme art-gallery */
+
+@import "default";
+
+:root {
+  --ink: #1b2533;
+  --muted: #596579;
+  --paper: #f7f5f0;
+  --accent: #d97745;
+  --teal: #2a7776;
+}
 
 section {
-    background-color: #e36b34;
-    color: #292929;
-    font-family: Arial, sans-serif;
-    padding: 60px;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Aptos", "Segoe UI", sans-serif;
+  font-size: 27px;
+  padding: 58px 76px;
 }
 
 h1 {
-    color: #8c27c2;
+  color: var(--ink);
+  font-size: 1.65em;
+  margin-bottom: 0.55em;
 }
 
-h2 {
-    color: #ef1111;
+h2,
+h3 {
+  color: var(--teal);
 }
 
-section.lead {
-    background-color: #292929;
-    color: white;
-    text-align: center;
+strong {
+  color: var(--teal);
 }
 
-section.lead h1 {
-    color: white;
+table {
+  width: 100%;
+  font-size: 0.78em;
+}
+
+th {
+  background: var(--ink);
+  color: #fff;
+}
+
+td,
+th {
+  border-color: #d9d5cb;
+  padding: 0.55em 0.7em;
+}
+
+section img {
+  max-height: 310px;
+  object-fit: contain;
+}
+
+section.cover {
+  background: var(--ink);
+  color: #fff;
+  padding-right: 45%;
+}
+
+section.cover h1 {
+  color: #fff;
+  font-size: 2.2em;
+  margin-bottom: 0.12em;
+}
+
+section.cover h3 {
+  color: #f3b58f;
+  font-size: 1em;
+  margin-top: 0;
+}
+
+section.cover > p:first-child {
+  height: 100%;
+  margin: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40%;
+}
+
+section.cover > p:first-child img {
+  height: 100%;
+  max-height: none;
+  object-fit: cover;
+  width: 100%;
+}
+
+section.cover > p:last-child {
+  align-items: center;
+  bottom: 24px;
+  display: flex;
+  gap: 20px;
+  left: 76px;
+  margin: 0;
+  position: absolute;
+}
+
+section.cover > p:last-child img {
+  height: 46px;
+  max-height: 46px;
+  width: auto;
+}
+
+section.agenda ol {
+  color: var(--muted);
+  font-size: 1.12em;
+  line-height: 1.7;
+  padding-left: 1.3em;
+}
+
+section.conclusion {
+  background: var(--ink);
+  color: #fff;
+}
+
+section.conclusion h1,
+section.conclusion h3 {
+  color: #fff;
+}
+
+section.conclusion strong {
+  color: #f3b58f;
 }

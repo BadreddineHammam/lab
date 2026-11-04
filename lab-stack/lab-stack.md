@@ -1,6 +1,7 @@
 ---
 marp: true
 theme: lab-stack
+style: style.css
 paginate: true
 header: "PROJECT · ART GALLERY"
 footer: "Art Gallery · Project overview"
@@ -8,7 +9,8 @@ footer: "Art Gallery · Project overview"
 
 <!-- _class: cover -->
 
-![OFPPT](./ofppt.png) ![Solicode](./solicode.png)
+![OFPPT](./ofppt.png)
+![Solicode](./solicode.png)
 
 # Art Gallery
 
