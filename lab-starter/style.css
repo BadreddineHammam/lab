@@ -1,0 +1,51 @@
+/* @theme lab-starter */
+
+@import "default";
+
+section {
+  background: #f7f8fa;
+  color: #263238;
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  padding: 48px 64px;
+}
+
+h1 {
+  color: #246b68;
+  font-size: 1.55em;
+}
+
+h2,
+h3 {
+  color: #40545c;
+}
+
+strong {
+  color: #246b68;
+}
+
+table {
+  width: 100%;
+  font-size: 0.82em;
+}
+
+th {
+  background: #246b68;
+  color: #ffffff;
+}
+
+td,
+th {
+  padding: 8px;
+}
+
+section.title {
+  background: #246b68;
+  color: #ffffff;
+  text-align: center;
+}
+
+section.title h1,
+section.title h2 {
+  color: #ffffff;
+}
