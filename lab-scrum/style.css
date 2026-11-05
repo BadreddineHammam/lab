@@ -1,0 +1,295 @@
+/* @theme lab-scrum */
+
+@import "default";
+
+section {
+  background: #f5f8f7;
+  color: #19313b;
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  padding: 48px 64px;
+}
+
+h1 {
+  color: #19313b;
+  font-size: 1.65em;
+}
+
+h3 {
+  margin: 0.35em 0;
+}
+
+strong,
+.eyebrow,
+.card-number,
+.flow-step span,
+.feature-list span {
+  color: #087f78;
+}
+
+.eyebrow {
+  font-size: 0.56em;
+  font-weight: bold;
+  letter-spacing: 0.12em;
+}
+
+section.lead {
+  background: #123942;
+  color: white;
+  text-align: center;
+}
+
+.lead h1,
+.lead p {
+  color: white;
+}
+
+.lead h1 {
+  font-size: 2em;
+  line-height: 1.1;
+}
+
+.lead .eyebrow {
+  color: #8fe1cf;
+}
+
+.logo-row {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  height: 40px;
+  justify-content: center;
+  margin: 0 auto 12px;
+}
+
+.logo-row img {
+  height: auto;
+  max-height: 30px;
+  max-width: 80px;
+  object-fit: contain;
+  width: auto;
+}
+
+.cover-subtitle {
+  color: #d2e3e1 !important;
+  font-size: 0.8em;
+}
+
+.cover-meta,
+.bottom-note,
+.slide-intro {
+  color: #647780;
+  font-size: 0.7em;
+}
+
+.lead .cover-meta {
+  color: #a9c5c1;
+}
+
+.cards {
+  display: grid;
+  gap: 16px;
+  margin: 1em 0;
+}
+
+.cards.three {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card,
+.flow-step,
+.source-card {
+  background: white;
+  border: 1px solid #d9e4e1;
+  padding: 16px;
+}
+
+.card p {
+  color: #647780;
+  font-size: 0.72em;
+}
+
+.card-number,
+.role-label {
+  font-size: 0.6em !important;
+  font-weight: bold;
+}
+
+.role-card ul {
+  color: #647780;
+  font-size: 0.68em;
+  line-height: 1.5;
+}
+
+.role-label {
+  color: #087f78 !important;
+}
+
+.flow {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  margin: 1.5em 0;
+}
+
+.flow-step {
+  flex: 1;
+}
+
+.flow-step span,
+.flow-step strong,
+.flow-step small {
+  display: block;
+}
+
+.flow-step strong {
+  font-size: 0.7em;
+}
+
+.flow-step small {
+  color: #647780;
+  font-size: 0.55em;
+}
+
+.flow-arrow {
+  color: #087f78;
+}
+
+.callout {
+  background: #dff3ef;
+  border-left: 4px solid #087f78;
+  font-size: 0.72em;
+  padding: 12px 16px;
+}
+
+.feature-list,
+.result-grid {
+  display: grid;
+  gap: 10px 24px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.feature-list > div {
+  border-bottom: 1px solid #d9e4e1;
+  padding: 10px 0;
+}
+
+.feature-list span {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.feature-list small {
+  color: #647780;
+  display: block;
+  font-size: 0.6em;
+  margin-left: 32px;
+}
+
+table {
+  background: white;
+  border-collapse: collapse;
+  font-size: 0.72em;
+  width: 100%;
+}
+
+th {
+  background: #123942;
+  color: white;
+  text-align: left;
+}
+
+td,
+th {
+  border-bottom: 1px solid #d9e4e1;
+  padding: 8px 12px;
+}
+
+.priority {
+  font-size: 0.75em;
+  font-weight: bold;
+}
+
+.priority.high {
+  color: #087f78;
+}
+
+.priority.medium {
+  color: #8a5b00;
+}
+
+.priority.low {
+  color: #596970;
+}
+
+section.dark {
+  background: #123942;
+  color: white;
+}
+
+.dark h1,
+.dark h3 {
+  color: white;
+}
+
+.dark .eyebrow,
+.dark .card-number {
+  color: #8fe1cf;
+}
+
+.dark .card {
+  background: #1c4a53;
+  border-color: #37616a;
+}
+
+.dark .card p,
+.dark .bottom-note {
+  color: #d2e3e1;
+}
+
+.result-grid {
+  color: #e4f0ee;
+  font-size: 0.78em;
+  margin: 1em 0;
+}
+
+.inverse {
+  background: #1c4a53;
+  border-color: #8fe1cf;
+  color: white;
+  margin-top: 1em;
+}
+
+.inverse strong {
+  color: #8fe1cf;
+}
+
+.takeaways p {
+  border-bottom: 1px solid #d9e4e1;
+  font-size: 0.75em;
+  padding: 8px 0;
+}
+
+.takeaways strong {
+  display: inline-block;
+  min-width: 210px;
+}
+
+.takeaways span,
+.source-note {
+  color: #647780;
+}
+
+.closing-line {
+  color: #087f78;
+  font-weight: bold;
+  margin-top: 1em;
+}
+
+.source-card {
+  margin-top: 1em;
+}
+
+.source-card p {
+  font-size: 0.78em;
+}
