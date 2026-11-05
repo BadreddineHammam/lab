@@ -1,0 +1,25 @@
+/* @theme scrum-simple */
+
+@import "default";
+
+section {
+  background: #f7f7f7;
+  color: #333;
+  font-family: Arial, sans-serif;
+  padding: 64px;
+}
+
+h1 {
+  color: #315c5b;
+}
+
+section.title {
+  background: #315c5b;
+  color: #fff;
+  text-align: center;
+}
+
+section.title h1,
+section.title h2 {
+  color: #fff;
+}
