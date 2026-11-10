@@ -1,34 +1,49 @@
-# lab-php
+# Lab PHP — notions complémentaires
 
-## Goal
+## Objectif
 
-This lab introduces three PHP topics that are not yet covered in class:
+Découvrir trois notions PHP, les expliquer et les tester à travers un exemple
+autonome inspiré de la gestion de projets et de tâches :
 
-- **Error and exception handling:** detect and handle problems.
-- **Namespaces:** organize classes and avoid name conflicts.
-- **Traits:** share code between classes.
+- **Erreurs et exceptions** : signaler une donnée invalide et traiter le cas à
+  l'endroit approprié.
+- **Namespaces** : organiser les classes et distinguer des classes qui portent
+  le même nom.
+- **Traits** : partager un comportement commun entre plusieurs classes.
 
-For each topic, explain its role and build a practical example related to the technical project.
+Les scripts sont des démonstrations autonomes en mémoire. Ils ne sont pas
+intégrés à l'application Laravel [my-laravel-app](../my-laravel-app). Celle-ci
+déclare PHP `^8.1`, Laravel `^10.10` et le mapping Composer `App\` vers `app/`
+dans son `composer.json`. Les exemples utilisent une syntaxe compatible avec
+PHP 8.1 et ne nécessitent ni Composer ni base de données.
 
-## What to do
+## Démarrage rapide
 
-1. Research and explain the three topics.
-2. Build one practical example for each topic.
-3. Run the examples and explain how they relate to the project architecture.
-4. Present the work in [presentation.md](presentation.md), a Marp presentation.
+Depuis la racine du dépôt, exécuter chaque exemple :
 
-## Project context
+```powershell
+php .\lab-php\pratique\erreurs-exceptions\exemple.php
+php .\lab-php\pratique\namespaces\exemple.php
+php .\lab-php\pratique\traits\exemple.php
+```
 
-The related Laravel project declares PHP `^8.3`, Laravel `^13.17`, and the Composer PSR-4 mapping `App\` to `app/`. The exercises use plain PHP and simulate article-related behavior in memory. They are learning examples, not features already integrated into the Laravel application.
+Les commandes affichent le résultat attendu directement dans le terminal.
+Chaque fichier `tutoriel.md` détaille le code, la sortie, le lien avec
+l'architecture du projet et une limite ou une piste d'évolution.
 
-## Practice files
+Sur l'environnement de travail actuel, le CLI PHP affiche aussi des
+avertissements de configuration (`php_xml.dll` et `php_bcmath.dll` introuvables,
+`zip` chargé deux fois). Ils précèdent la sortie des exemples et ne sont pas
+causés par le code du lab.
 
-See the [practice guide](pratique/README.md) for the Quick Start, commands, expected output, and links to the three tutorials.
+| Notion | Exemple exécutable | Tutoriel |
+|---|---|---|
+| Erreurs et exceptions | [exemple.php](pratique/erreurs-exceptions/exemple.php) | [tutoriel.md](pratique/erreurs-exceptions/tutoriel.md) |
+| Namespace | [exemple.php](pratique/namespaces/exemple.php) | [tutoriel.md](pratique/namespaces/tutoriel.md) |
+| Trait | [exemple.php](pratique/traits/exemple.php) | [tutoriel.md](pratique/traits/tutoriel.md) |
 
-Before presenting, add the student's real project problem and proposed solution to the marked placeholders in the slides. Do not describe a made-up problem as a real one.
+## Présentation
 
-
-
-
-
-
+Le support [presentation.md](presentation.md) est une présentation Marp en
+français. Remplacer les champs d'identification par les informations réelles
+avant de présenter.

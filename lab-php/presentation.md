@@ -3,188 +3,210 @@ marp: true
 theme: default
 paginate: true
 size: 16:9
+backgroundColor: "#f7f9fc"
+color: "#1f2933"
 style: |
   section {
-    box-sizing: border-box;
-    padding: 46px 62px;
-    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-    background: #F8FAFC;
-    color: #0F172A;
+    font-family: "Segoe UI", Arial, sans-serif;
     font-size: 25px;
-    line-height: 1.3;
+    padding: 46px 62px;
   }
-  h1 { color: #0F172A; font-size: 1.65em; border-bottom: 4px solid #14B8A6; padding-bottom: 0.18em; }
-  h2 { color: #334155; font-size: 1.12em; }
-  strong { color: #0F766E; }
-  li { margin: 0.15em 0; }
-  section.title { background: #0F172A; color: #F8FAFC; text-align: center; justify-content: center; }
-  section.title h1 { color: #F8FAFC; border: 0; }
-  section.title h2 { color: #CBD5E1; }
-  section.problem h1 { color: #B45309; border-color: #F59E0B; }
-  section.solution h1 { color: #0F766E; border-color: #14B8A6; }
-  pre { font-size: 18px; line-height: 1.22; background: #0F172A; color: #F8FAFC; border-radius: 12px; padding: 16px; }
-  code { font-size: 0.82em; }
+  h1 { color: #155e75; }
+  strong { color: #0e7490; }
+  pre { font-size: 17px; }
 ---
 
-<!-- _class: title -->
+<!-- _class: lead -->
 
-# lab-php
+# PHP : trois notions utiles
 
-## PHP topics beyond the course
+### Erreurs et exceptions · Namespaces · Traits
 
-**Student:** [Add your name]  
-**Teacher:** ES-SARRAJ Fouad  
-**Date:** [Add the presentation date]
+**Étudiant :** [Nom]<br>
+**Formateur :** [Nom]<br>
+**Date :** [Date]
+
+<!--
+Speaker note: Présenter le thème du lab et les trois notions abordées.
+Remplacer les champs d'identification par les informations réelles.
+-->
 
 ---
 
-## Presentation Plan
+# Plan
 
-1. Introduction & Technical Stack
-2. Definitions
-3. Problem
-4. Solution
+1. Contexte et stack technique
+2. Définitions et besoin d'apprentissage
+3. Trois exemples exécutables
+4. Livrables et vérifications
 
----
-
-## Introduction & Technical Stack
-
-- **Goal:** learn three useful PHP topics through small examples.
-- **Project context:** a Laravel article-management project.
-- **PHP:** `^8.3`, as declared in the project's `composer.json`.
-- **Framework:** Laravel `^13.17`.
-- **Autoloading:** Composer maps `App\` to the `app/` folder.
-- The lab examples use plain PHP and in-memory data. They are not integrated application features.
+<!--
+Speaker note: Annoncer le parcours en reliant chaque notion à un exemple PHP.
+Préciser que les scripts sont des exercices autonomes.
+-->
 
 ---
 
-## Definitions
+# Contexte technique
 
-- **Error:** a problem reported by PHP or the program.
-- **Exception:** an object that reports a problem and can be handled with `try` and `catch`.
-- **Namespace:** a named group for classes, such as `App\Models`.
-- **Trait:** a way to share methods and properties between classes.
+- Projet de référence : application Laravel du dépôt
+- PHP déclaré : `^8.1` · Laravel : `^10.10`
+- Composer mappe `App\` vers `app/` (PSR-4)
+- Les exercices sont en PHP autonome et stockent tout en mémoire
+- Ils ne sont pas intégrés à l'application ni à sa base de données
 
----
-
-## Quick Start: Run PHP
-
-Open a terminal in the `pratique` folder:
-
-```powershell
-php -v
-php .\hello-world.php
-```
-
-`hello-world.php` prints:
-
-```text
-Hello, PHP lab!
-```
-
-Use PHP 8.3 or a compatible version for the project.
+<!--
+Speaker note: Les versions viennent du composer.json de l'application.
+Les exemples restent indépendants afin de pouvoir les lancer séparément.
+-->
 
 ---
 
-<!-- _class: problem -->
+# Les trois notions
 
-## Problem
+- **Exception** : objet signalant un cas anormal que le code peut traiter.
+- **Namespace** : nom qui organise et distingue les classes.
+- **Trait** : bloc de méthodes réutilisable dans plusieurs classes.
+- Ces outils structurent le code et son comportement, chacun à sa place.
 
-**Real problem from the technical project:**  
-[Student: describe the problem you actually experienced.]
-
-**Why it matters:**  
-[Explain who or what is affected.]
-
-Do not present a practice example as a real project problem.
+<!--
+Speaker note: Définir les mots avant la démonstration.
+Un trait n'est pas une classe et une exception n'est pas chaque erreur PHP.
+-->
 
 ---
 
-<!-- _class: solution -->
+# Besoin pédagogique
 
-## Solution: Handle Invalid Article Data
+- Le lab demande de rechercher, comprendre et tester des notions nouvelles.
+- Le brief ne décrit pas de bogue réel rencontré dans l'application.
+- Les exemples utilisent donc un scénario **simulé** de gestion de tâches.
+- Ne pas présenter cette simulation comme une fonctionnalité déjà livrée.
 
-The example checks an article title and reports an empty title to the caller.
+<!--
+Speaker note: Distinguer le besoin du lab d'un problème réel du projet.
+La gestion de tâches est le contexte de démonstration, pas une intégration.
+-->
+
+---
+
+# Exceptions · refuser un titre vide
 
 ```php
-if (trim($title) === '') {
-    throw new InvalidArgumentException('The title cannot be empty.');
+public function create(string $title): string
+{
+    $normalizedTitle = trim($title);
+    if ($normalizedTitle === '') {
+        throw new TaskException('Le titre de la tâche ne peut pas être vide.');
+    }
+    return 'Tâche créée : ' . $normalizedTitle;
 }
 
 try {
-    echo publishArticle($title);
-} catch (InvalidArgumentException $exception) {
-    echo $exception->getMessage();
+    echo $taskService->create('Préparer la présentation PHP'), PHP_EOL;
+    echo $taskService->create('   '), PHP_EOL;
+} catch (TaskException $exception) {
+    echo 'Erreur traitée : ' . $exception->getMessage(), PHP_EOL;
+} finally {
+    echo 'Fin de la démonstration.', PHP_EOL;
 }
 ```
 
-Run it from `pratique`:
+**Effet observé :** la première tâche est créée ; le titre vide est traité.
 
-```powershell
-php .\erreurs-exceptions\exemple.php
-```
+<!--
+Speaker note: trim retire les espaces avant le contrôle.
+throw interrompt le chemin normal et le catch correspondant affiche le message.
+-->
 
 ---
 
-<!-- _class: light -->
-
-## Solution: Organize Classes with Namespaces
-
-Namespaces give each class a clear, unique name:
+# Namespaces · distinguer deux `Item`
 
 ```php
-namespace App\Models;
+namespace LabPhp\Catalog {
+    final class Item {}
+}
 
-final class Article
-{
-    public function __construct(public readonly string $title) {}
+namespace LabPhp\Inventory {
+    final class Item {}
+}
+
+namespace {
+    use LabPhp\Catalog\Item as CatalogItem;
+    use LabPhp\Inventory\Item as InventoryItem;
 }
 ```
 
-The repository is in `App\Repositories` and imports `App\Models\Article`.
+Les noms complets sont différents :<br>
+`LabPhp\Catalog\Item` et `LabPhp\Inventory\Item`.
 
-The example follows the project's Composer naming convention. Run it from `pratique`:
-
-```powershell
-php .\namespaces\demo.php
-```
+<!--
+Speaker note: Les deux classes peuvent partager le nom court Item.
+Dans l'application, App\Models\Item suit le mapping PSR-4 du projet.
+-->
 
 ---
 
-<!-- _class: solution -->
-
-## Solution: Share Behavior with a Trait
-
-`Article` and `Comment` both use `HasTimestamps`:
+# Trait · partager la journalisation
 
 ```php
-trait HasTimestamps
+trait ActivityLogger
 {
-    private DateTimeImmutable $createdAt;
-
-    public function createdAt(): DateTimeImmutable
+    public function logActivity(string $message): void
     {
-        return $this->createdAt;
+        echo 'Activité : ' . $message, PHP_EOL;
     }
 }
+
+final class Task
+{
+    use ActivityLogger;
+}
+
+final class Project
+{
+    use ActivityLogger;
+}
 ```
 
-The trait keeps shared timestamp behavior in one place. Run it from `pratique`:
+**Effet observé :** les deux classes disposent de `logActivity()`.
 
-```powershell
-php .\traits\exemple.php
-```
+<!--
+Speaker note: Le trait évite de recopier la méthode.
+Le modèle User de l'application utilise aussi des traits Laravel comme Notifiable.
+-->
 
 ---
 
-<!-- _class: solution -->
+# Quick Start · lancer les exemples
 
-## Solution and Practical Work
+Depuis la racine du dépôt :
 
-- **Exceptions:** reject an empty article title and show a useful message.
-- **Namespaces:** organize the article model and repository using `App\`.
-- **Traits:** share timestamp behavior between an article and a comment.
-- Follow the tutorials in `pratique/` to see each example, command, and expected result.
+```powershell
+php .\lab-php\pratique\erreurs-exceptions\exemple.php
+php .\lab-php\pratique\namespaces\exemple.php
+php .\lab-php\pratique\traits\exemple.php
+```
 
-**Solution for the real project problem:**  
-[Student: describe your proposed solution and how it relates to the project.]
+Chaque script affiche sa sortie attendue dans le terminal.
+
+<!--
+Speaker note: Ces commandes utilisent le PHP CLI et des chemins relatifs à la racine.
+Chaque exemple est autonome et ne demande ni base de données ni dépendance.
+-->
+
+---
+
+# Livrables et vérification
+
+- Trois scripts PHP et trois tutoriels dans `lab-php/pratique/`
+- Un README avec les commandes de démarrage
+- Vérifier la syntaxe : `php -l` sur chaque fichier `exemple.php`
+- Comparer les sorties aux résultats indiqués dans les tutoriels
+- Support : `lab-php/presentation.md`
+
+<!--
+Speaker note: Les tutoriels expliquent le code, la sortie et les limites.
+La validation vérifie la syntaxe PHP, pas une intégration à l'application.
+-->
