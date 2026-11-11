@@ -18,79 +18,79 @@ style: |
 
 <!-- _class: lead -->
 
-# PHP : trois notions utiles
+# PHP: Three Useful Concepts
 
-### Erreurs et exceptions · Namespaces · Traits
+### Errors and Exceptions · Namespaces · Traits
 
-**Étudiant :** Badreddine Hammam<br>
-**Formateur :** Fouad ES-SARRAJ<br>
-**Date :** 11/11/2026
+**Student:** Badreddine Hammam<br>
+**Instructor:** Fouad ES-SARRAJ<br>
+**Date:** 11/11/2026
 
 <!--
-Speaker note: Présenter le thème du lab et les trois notions abordées.
-Remplacer les champs d'identification par les informations réelles.
+Speaker note: Introduce the lab topic and the three concepts covered.
+The presenter details have already been filled in.
 -->
 
 ---
 
-# Plan
+# Agenda
 
-1. Contexte et stack technique
-2. Définitions et besoin d'apprentissage
-3. Trois exemples exécutables
-4. Livrables et vérifications
+1. Context and technical stack
+2. Definitions and learning objectives
+3. Three runnable examples
+4. Deliverables and verification
 
 <!--
-Speaker note: Annoncer le parcours en reliant chaque notion à un exemple PHP.
-Préciser que les scripts sont des exercices autonomes.
+Speaker note: Outline the presentation and connect each concept to a PHP example.
+Clarify that the scripts are standalone exercises.
 -->
 
 ---
 
-# Contexte technique
+# Technical Context
 
-- Projet de référence : application Laravel du dépôt
-- PHP déclaré : `^8.1` · Laravel : `^10.10`
-- Composer mappe `App\` vers `app/` (PSR-4)
-- Les exercices sont en PHP autonome et stockent tout en mémoire
-- Ils ne sont pas intégrés à l'application ni à sa base de données
+- Reference project: the repository's Laravel application
+- Declared versions: PHP `^8.1` · Laravel `^10.10`
+- Composer maps `App\` to `app/` (PSR-4)
+- The exercises use standalone PHP and keep data in memory
+- They are not integrated with the application or its database
 
 <!--
-Speaker note: Les versions viennent du composer.json de l'application.
-Les exemples restent indépendants afin de pouvoir les lancer séparément.
+Speaker note: The versions come from the application's composer.json.
+The examples remain independent so they can be run separately.
 -->
 
 ---
 
-# Les trois notions
+# The Three Concepts
 
-- **Exception** : objet signalant un cas anormal que le code peut traiter.
-- **Namespace** : nom qui organise et distingue les classes.
-- **Trait** : bloc de méthodes réutilisable dans plusieurs classes.
-- Ces outils structurent le code et son comportement, chacun à sa place.
+- **Exception**: an object that signals an unusual condition the code can handle.
+- **Namespace**: a name that organizes and distinguishes classes.
+- **Trait**: a set of methods reusable across multiple classes.
+- Each tool structures code and behavior in a different way.
 
 <!--
-Speaker note: Définir les mots avant la démonstration.
-Un trait n'est pas une classe et une exception n'est pas chaque erreur PHP.
+Speaker note: Define the terms before the demonstrations.
+A trait is not a class, and not every PHP error is an exception.
 -->
 
 ---
 
-# Besoin pédagogique
+# Learning Goal
 
-- Le lab demande de rechercher, comprendre et tester des notions nouvelles.
-- Le brief ne décrit pas de bogue réel rencontré dans l'application.
-- Les exemples utilisent donc un scénario **simulé** de gestion de tâches.
-- Ne pas présenter cette simulation comme une fonctionnalité déjà livrée.
+- The lab asks learners to research, understand, and test new concepts.
+- The brief does not describe a real bug encountered in the application.
+- The examples therefore use a **simulated** task-management scenario.
+- Do not present this simulation as an implemented feature.
 
 <!--
-Speaker note: Distinguer le besoin du lab d'un problème réel du projet.
-La gestion de tâches est le contexte de démonstration, pas une intégration.
+Speaker note: Distinguish the lab's learning goal from a real project problem.
+Task management is the demonstration context, not an integration.
 -->
 
 ---
 
-# Exceptions · refuser un titre vide
+# Exceptions · Rejecting an Empty Title
 
 ```php
 public function create(string $title): string
@@ -112,16 +112,16 @@ try {
 }
 ```
 
-**Effet observé :** la première tâche est créée ; le titre vide est traité.
+**Observed result:** the first task is created; the empty title is handled.
 
 <!--
-Speaker note: trim retire les espaces avant le contrôle.
-throw interrompt le chemin normal et le catch correspondant affiche le message.
+Speaker note: trim removes whitespace before validation.
+throw interrupts the normal flow, and the matching catch displays the message.
 -->
 
 ---
 
-# Namespaces · distinguer deux `Item`
+# Namespaces · Distinguishing Two `Item` Classes
 
 ```php
 namespace LabPhp\Catalog {
@@ -138,17 +138,17 @@ namespace {
 }
 ```
 
-Les noms complets sont différents :<br>
-`LabPhp\Catalog\Item` et `LabPhp\Inventory\Item`.
+The fully qualified names are different:<br>
+`LabPhp\Catalog\Item` and `LabPhp\Inventory\Item`.
 
 <!--
-Speaker note: Les deux classes peuvent partager le nom court Item.
-Dans l'application, App\Models\Item suit le mapping PSR-4 du projet.
+Speaker note: Both classes can share the short name Item.
+In the application, App\Models\Item follows the project's PSR-4 mapping.
 -->
 
 ---
 
-# Trait · partager la journalisation
+# Traits · Sharing Activity Logging
 
 ```php
 trait ActivityLogger
@@ -170,18 +170,18 @@ final class Project
 }
 ```
 
-**Effet observé :** les deux classes disposent de `logActivity()`.
+**Observed result:** both classes have access to `logActivity()`.
 
 <!--
-Speaker note: Le trait évite de recopier la méthode.
-Le modèle User de l'application utilise aussi des traits Laravel comme Notifiable.
+Speaker note: The trait avoids duplicating the method.
+The application's User model also uses Laravel traits such as Notifiable.
 -->
 
 ---
 
-# Quick Start · lancer les exemples
+# Quick Start · Run the Examples
 
-Depuis la racine du dépôt :
+From the repository root:
 
 ```powershell
 php .\lab-php\pratique\erreurs-exceptions\exemple.php
@@ -189,24 +189,24 @@ php .\lab-php\pratique\namespaces\exemple.php
 php .\lab-php\pratique\traits\exemple.php
 ```
 
-Chaque script affiche sa sortie attendue dans le terminal.
+Each script prints its expected output in the terminal.
 
 <!--
-Speaker note: Ces commandes utilisent le PHP CLI et des chemins relatifs à la racine.
-Chaque exemple est autonome et ne demande ni base de données ni dépendance.
+Speaker note: These commands use the PHP CLI and paths relative to the repository root.
+Each example is standalone and requires neither a database nor dependencies.
 -->
 
 ---
 
-# Livrables et vérification
+# Deliverables and Verification
 
-- Trois scripts PHP et trois tutoriels dans `lab-php/pratique/`
-- Un README avec les commandes de démarrage
-- Vérifier la syntaxe : `php -l` sur chaque fichier `exemple.php`
-- Comparer les sorties aux résultats indiqués dans les tutoriels
-- Support : `lab-php/presentation.md`
+- Three PHP scripts and three tutorials in `lab-php/pratique/`
+- A README with the startup commands
+- Check syntax with `php -l` on each `exemple.php` file
+- Compare the output with the results listed in the tutorials
+- Slides: `lab-php/presentation.md`
 
 <!--
-Speaker note: Les tutoriels expliquent le code, la sortie et les limites.
-La validation vérifie la syntaxe PHP, pas une intégration à l'application.
+Speaker note: The tutorials explain the code, output, and limitations.
+Syntax validation checks the PHP files; it does not verify application integration.
 -->
