@@ -22,9 +22,9 @@ style: |
 
 ### Erreurs et exceptions · Namespaces · Traits
 
-**Étudiant :** [Nom]<br>
-**Formateur :** [Nom]<br>
-**Date :** [Date]
+**Étudiant :** Badreddine Hammam<br>
+**Formateur :** Fouad ES-SARRAJ<br>
+**Date :** 11/11/2026
 
 <!--
 Speaker note: Présenter le thème du lab et les trois notions abordées.
